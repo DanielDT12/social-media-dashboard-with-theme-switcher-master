@@ -1,0 +1,70 @@
+:root {
+    /* COLORS PRIMARY */
+    --clr-green: hsl(163, 72%, 41%);
+    --clr-red: hsl(356, 69%, 56%);
+
+    --clr-facebook: hsl(208, 92%, 53%);
+    --clr-twitter: hsl(203, 89%, 53%);
+    --clr-lin-grad-instagram: linear-gradient(hsl(37, 97%, 70%) to hsl(329, 70%, 58%));
+    --clr-youtube: hsl(348, 97%, 39%);
+
+    --dark-theme-toggle-bg: linear-gradient(hsl(210, 78%, 56%) to hsl(146, 68%, 55%));
+    --light-theme-toggle-bg: hsl(230, 22%, 74%);
+
+    /* DARK THEME COLORS */
+    --clr-dark-900: hsl(230, 17%, 14%); /* (BG) */
+    --clr-dark-850: hsl(232, 19%, 15%); /* (Top BG Pattern) */
+    --clr-dark-800: hsl(228, 28%, 20%); /* (Card BG) */
+    --clr-dark-400: hsl(228, 34%, 66%); /* (Text) VERY LIGHT BLUE */
+    --clr-dark-100: hsl(0, 0%, 100%); /* (Text) WHITE */
+
+    /* LIGHT THEME COLORS */
+    --clr-light-900: hsl(230, 17%, 14%); /* (Text) DARK */
+    --clr-light-400: hsl(228, 12%, 44%); /* (Text) GRAY BLUE MEDIUM */
+    --clr-light-200: hsl(227, 47%, 96%); /* (Card BG) */
+    --clr-light-150: hsl(225, 100%, 98%); /* (Top BG Pattern) */
+    --clr-light-100: hsl(0, 0%, 100%); /* (BG) */
+
+    /* FONTS */
+    --ff-global: "Inter", sans-serif;
+    
+    --fs-300: .875rem; /* (Overview Card Headings) */
+    --fs-400: 1rem;
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+}
+
+/* CSS RESET */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    line-height: 1.1;
+}
+
+img,
+picture {
+    display: block;
+    max-width: 100%;
+}
+
+
+/* PRE STYLED FROM FRONTEND MENTOR */
+.attribution { 
+    font-size: 11px; text-align: center; 
+}
+
+.attribution a {
+    background: lina;
+     color: hsl(228, 45%, 44%); 
+}
