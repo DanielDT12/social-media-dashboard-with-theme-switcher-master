@@ -30,6 +30,8 @@
     
     --fs-300: .875rem; /* (Overview Card Headings) */
     --fs-400: 1rem;
+    --fs-500: 1.125rem;
+    --fs-900: 3.5rem;
 
     --fw-regular: 400;
     --fw-bold: 700;
@@ -45,6 +47,7 @@
 }
 
 html {
+    color-scheme: dark;
     line-height: 1.5;
 }
 
@@ -58,6 +61,125 @@ picture {
     max-width: 100%;
 }
 
+/* GENERAL STYLING */
+body {
+    font-family: var(--ff-global);
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 
+        minmax(1rem, 1fr)
+        min((100% - 2rem), 68rem)
+        minmax(1rem, 1fr);
+}
+
+.primary-header {
+    grid-column-start: 2;
+    padding-block: 2rem
+}
+
+.main-content {
+    grid-column-start: 2;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.follower-card {
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+    border-radius: .5rem;
+    padding: 2rem;
+}
+
+    .facebook-border {
+        border-top: 3px solid var(--clr-facebook);
+    }
+    
+    .twitter-border {
+        border-top: 3px solid var(--clr-twitter);
+    }
+
+    .instagram-border { /* NEEDS FIXING */ 
+        border-top: solid;
+        border-image-slice: 1;
+        border-width: 3px;
+        border-image-source: linear-gradient( to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+    }
+
+    .youtube-border {
+        border-top: 3px solid var(--clr-youtube);
+    }
+
+
+.account-name {
+    margin-left: .5rem;
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-300);
+}
+
+.follower-number {
+    font-size: var(--fs-900);
+}
+
+.followers-txt {
+    font-size: var(--fs-300);
+    text-transform: uppercase;
+    letter-spacing: .25rem;
+}
+
+.green-txt {
+    align-items: center;
+    margin-left: .25rem;
+    color: var(--clr-green);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-bold);
+}
+
+.red-txt {
+    align-items: center;
+    margin-left: .25rem;
+    color: var(--clr-red);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-bold);
+}
+
+.overview {
+    margin-block: 2.5rem 1.5rem;
+    font-size: var(--fs-500);
+    font-weight: var(--fw-bold);
+}
+
+.overview-cards {
+    border: 1px solid green;
+    padding: 1rem;
+}
+
+.primary-footer {
+    grid-column-start: 2;
+    margin-block: 3rem;
+}
+
+
+/* UTILITY CLASSES */
+.flex-row {
+    display: flex;
+    align-items: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.space-between {
+    justify-content: space-between;
+}
 
 /* PRE STYLED FROM FRONTEND MENTOR */
 .attribution { 
