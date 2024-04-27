@@ -5,10 +5,12 @@
 
     --clr-facebook: hsl(208, 92%, 53%);
     --clr-twitter: hsl(203, 89%, 53%);
-    --clr-lin-grad-instagram: linear-gradient(hsl(37, 97%, 70%) to hsl(329, 70%, 58%));
+    --clr-lin-grad-insta-start: hsl(37, 97%, 70%);
+    --clr-lin-grad-insta-end: hsl(329, 70%, 58%);
     --clr-youtube: hsl(348, 97%, 39%);
 
-    --dark-theme-toggle-bg: linear-gradient(hsl(210, 78%, 56%) to hsl(146, 68%, 55%));
+    --dark-toggle-bg-start: hsl(210, 78%, 56%);
+    --dark-toggle-bg-end: hsl(146, 68%, 55%);
     --light-theme-toggle-bg: hsl(230, 22%, 74%);
 
     /* DARK THEME COLORS */
@@ -28,14 +30,38 @@
     /* FONTS */
     --ff-global: "Inter", sans-serif;
     
+    --fs-200: .75rem;
     --fs-300: .875rem; /* (Overview Card Headings) */
     --fs-400: 1rem;
     --fs-500: 1.125rem;
+    --fs-700: 1.75rem;
     --fs-900: 3.5rem;
 
     --fw-regular: 400;
     --fw-bold: 700;
 }
+
+/* COLOR THEME SWITCHER MEDIA QUERY JS TOGGLE */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: var(--clr-dark-900);
+        --bg-2: var(--clr-dark-850);
+        --bg-card: var(--clr-dark-800);
+        --text-heading: var(--clr-dark-100);
+        --text-regular: var(--clr-dark-400);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: var(--clr-light-100);
+        --bg-2: var(--clr-light-150);
+        --bg-card: var(--clr-light-200);
+        --text-heading: var(--clr-light-900);
+        --text-regular: var(--clr-light-400);
+    }
+}
+
 
 /* CSS RESET */
 *,
@@ -47,7 +73,6 @@
 }
 
 html {
-    color-scheme: dark;
     line-height: 1.5;
 }
 
@@ -63,7 +88,13 @@ picture {
 
 /* GENERAL STYLING */
 body {
+    color: var(--text-heading);
+    background-color: var(--bg);
     font-family: var(--ff-global);
+}
+
+p {
+    color: var(--text-regular);
 }
 
 .grid-wrapper {
@@ -76,7 +107,16 @@ body {
 
 .primary-header {
     grid-column-start: 2;
-    padding-block: 2rem
+    padding-block: 2rem;
+
+    & h1 {
+        font-size: var(--fs-700);
+    }
+
+    & p {
+        font-size: var(--fs-300);
+        font-weight: var(--fw-bold);
+    }
 }
 
 .main-content {
@@ -93,32 +133,36 @@ body {
     gap: 1.5rem;
     align-items: center;
     text-align: center;
-    border-radius: .5rem;
-    padding: 2rem;
+    border-radius: .25rem;
+    padding: 1.5rem;
+    background-color: var(--bg-card);
 }
-
+    /* INDENTED BECAUSE IT'S IN RELATION TO FOLLOWER CARDS */
     .facebook-border {
-        border-top: 3px solid var(--clr-facebook);
+        border-top: 4px solid var(--clr-facebook);
     }
     
     .twitter-border {
-        border-top: 3px solid var(--clr-twitter);
+        border-top: 4px solid var(--clr-twitter);
     }
 
-    .instagram-border { /* NEEDS FIXING */ 
+    .instagram-border { /* NEEDS FIXING BORDER SEEMS TO NOT FOLLOW BORDER RADIUS */ 
         border-top: solid;
         border-image-slice: 1;
-        border-width: 3px;
-        border-image-source: linear-gradient( to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+        border-width: 4px;
+        border-image-source: linear-gradient( to right, 
+            var(--clr-lin-grad-insta-start), 
+            var(--clr-lin-grad-insta-end));
     }
 
     .youtube-border {
-        border-top: 3px solid var(--clr-youtube);
+        border-top: 4px solid var(--clr-youtube);
     }
 
 
 .account-name {
     margin-left: .5rem;
+    color: var(--text-regular);
     font-weight: var(--fw-regular);
     font-size: var(--fs-300);
 }
@@ -137,7 +181,7 @@ body {
     align-items: center;
     margin-left: .25rem;
     color: var(--clr-green);
-    font-size: var(--fs-300);
+    font-size: var(--fs-200);
     font-weight: var(--fw-bold);
 }
 
@@ -145,19 +189,20 @@ body {
     align-items: center;
     margin-left: .25rem;
     color: var(--clr-red);
-    font-size: var(--fs-300);
+    font-size: var(--fs-200);
     font-weight: var(--fw-bold);
 }
 
 .overview {
     margin-block: 2.5rem 1.5rem;
-    font-size: var(--fs-500);
-    font-weight: var(--fw-bold);
+    font-size: var(--fs-400);
+    font-weight: var(--fw-regular);
 }
 
 .overview-cards {
-    border: 1px solid green;
-    padding: 1rem;
+    border-radius: .25rem;
+    padding: 1.5rem;
+    background-color: var(--bg-card);
 }
 
 .primary-footer {
@@ -179,6 +224,10 @@ body {
 
 .space-between {
     justify-content: space-between;
+}
+
+.flow > * + * {
+    margin-block-start: var(--flow-space, 1rem);
 }
 
 /* PRE STYLED FROM FRONTEND MENTOR */
