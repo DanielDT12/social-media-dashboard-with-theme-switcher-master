@@ -13,6 +13,10 @@
     --dark-toggle-bg-end: hsl(146, 68%, 55%);
     --light-theme-toggle-bg: hsl(230, 22%, 74%);
 
+    --bg-toggle-dark: linear-gradient(90deg, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    --bg-toggle-light: var(--light-theme-toggle-bg);
+
+
     /* DARK THEME COLORS */
     --clr-dark-900: hsl(230, 17%, 14%); /* (BG) */
     --clr-dark-850: hsl(232, 19%, 15%); /* (Top BG Pattern) */
@@ -50,6 +54,7 @@
     --bg-card: var(--clr-dark-800);
     --text-heading: var(--clr-dark-100);
     --text-regular: var(--clr-dark-400);
+    --bg-toggle: var(--bg-toggle-dark);
 }
 
 :root[data-color-theme="light"] {
@@ -58,6 +63,7 @@
     --bg-card: var(--clr-light-200);
     --text-heading: var(--clr-light-900);
     --text-regular: var(--clr-light-400);
+    --bg-toggle: var(--bg-toggle-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -67,6 +73,7 @@
         --bg-card: var(--clr-dark-800);
         --text-heading: var(--clr-dark-100);
         --text-regular: var(--clr-dark-400);
+        --bg-toggle: var(--bg-toggle-dark);
     }
 }
 
@@ -77,6 +84,7 @@
         --bg-card: var(--clr-light-200);
         --text-heading: var(--clr-light-900);
         --text-regular: var(--clr-light-400);
+        --bg-toggle: var(--bg-toggle-light);
     }
 }
 
@@ -168,12 +176,9 @@ p {
     height: 24px;
     width: 48px;
     border-radius: 100vw;
-    background: linear-gradient(
-        90deg,
-        var(--dark-toggle-bg-start),
-        var(--dark-toggle-bg-end)
-    );
+    background: var(--bg-toggle);
     cursor: pointer;
+    transition: all .15s ease-in-out;
 }
 
 .slider::before {
@@ -186,10 +191,7 @@ p {
     aspect-ratio: 1;
     border-radius: 100vw;
     background-color: var(--bg-2);
-}
-
-.slider:checked {
-    background-color: var(--clr-light-400);
+    transition: all .15s ease-in-out;
 }
 
 #theme-toggle:checked + .slider::before {
