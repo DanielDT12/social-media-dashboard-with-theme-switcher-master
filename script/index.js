@@ -4,9 +4,13 @@ const dataTheme = document.documentElement.getAttribute("data-color-theme");
 const rootElement = document.documentElement;
 
 
-if(dataTheme === "default-browser") {
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    checkBox.checked = true;
+} else {
     checkBox.checked = false;
-} else if(dataTheme === "dark") {
+}
+
+if(dataTheme === "dark") {
     checkBox.checked = true;
     localStorage.setItem('theme', 'dark');
 } else if(dataTheme === "light") {
@@ -26,4 +30,4 @@ function switchTheme(event) {
 
 
 
-checkBox.addEventListener('click', switchTheme, false);
+checkBox.addEventListener('change', switchTheme, false);
