@@ -21,12 +21,14 @@
     --clr-dark-900: hsl(230, 17%, 14%); /* (BG) */
     --clr-dark-850: hsl(232, 19%, 15%); /* (Top BG Pattern) */
     --clr-dark-800: hsl(228, 28%, 20%); /* (Card BG) */
+    --clr-dark-700: hsl(228, 26%, 27%); /* CARD HOVER */
     --clr-dark-400: hsl(228, 34%, 66%); /* (Text) VERY LIGHT BLUE */
     --clr-dark-100: hsl(0, 0%, 100%); /* (Text) WHITE */
 
     /* LIGHT THEME COLORS */
     --clr-light-900: hsl(230, 17%, 14%); /* (Text) DARK */
     --clr-light-400: hsl(228, 12%, 44%); /* (Text) GRAY BLUE MEDIUM */
+    --clr-light-300: hsl(232, 33%, 91%); /* CARD HOVER */
     --clr-light-200: hsl(227, 47%, 96%); /* (Card BG) */
     --clr-light-150: hsl(225, 100%, 98%); /* (Top BG Pattern) */
     --clr-light-100: hsl(0, 0%, 100%); /* (BG) */
@@ -52,6 +54,7 @@
     --bg: var(--clr-dark-900);
     --bg-2: var(--clr-dark-850);
     --bg-card: var(--clr-dark-800);
+    --bg-card-hover: var(--clr-dark-700);
     --text-heading: var(--clr-dark-100);
     --text-regular: var(--clr-dark-400);
     --bg-toggle: var(--bg-toggle-dark);
@@ -61,6 +64,7 @@
     --bg: var(--clr-light-100);
     --bg-2: var(--clr-light-150);
     --bg-card: var(--clr-light-200);
+    --bg-card-hover: var(--clr-light-300);
     --text-heading: var(--clr-light-900);
     --text-regular: var(--clr-light-400);
     --bg-toggle: var(--bg-toggle-light);
@@ -71,6 +75,7 @@
         --bg: var(--clr-dark-900);
         --bg-2: var(--clr-dark-850);
         --bg-card: var(--clr-dark-800);
+        --bg-card-hover: var(--clr-dark-700);
         --text-heading: var(--clr-dark-100);
         --text-regular: var(--clr-dark-400);
         --bg-toggle: var(--bg-toggle-dark);
@@ -82,6 +87,7 @@
         --bg: var(--clr-light-100);
         --bg-2: var(--clr-light-150);
         --bg-card: var(--clr-light-200);
+        --bg-card-hover: var(--clr-light-300);
         --text-heading: var(--clr-light-900);
         --text-regular: var(--clr-light-400);
         --bg-toggle: var(--bg-toggle-light);
@@ -206,6 +212,7 @@ p {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    row-gap: 1.5rem;
 }
 
 .follower-card {
@@ -215,6 +222,11 @@ p {
     border-radius: .25rem;
     padding: 1.5rem;
     background-color: var(--bg-card);
+    cursor: pointer;
+}
+
+.follower-card:is(:hover, :focus) {
+    background-color: var(--bg-card-hover);
 }
     /* INDENTED BECAUSE IT'S IN RELATION TO FOLLOWER CARDS */
     .facebook-border {
@@ -291,6 +303,11 @@ p {
     border-radius: .25rem;
     padding: 1.5rem;
     background-color: var(--bg-card);
+    cursor: pointer;
+}
+
+.overview-cards:is(:hover, :focus) {
+    background-color: var(--bg-card-hover);
 }
 
 .overview-card__title {
